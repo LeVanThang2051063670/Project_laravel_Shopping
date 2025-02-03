@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\WarehouseController;
+use App\Http\Controllers\Admin\StatisticsController;
 
 
 // Route::get('/', function () {
@@ -80,11 +82,38 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
     Route::get('/order/detail/{order}', [OrderController::class, 'show'])->name('order.show');
     Route::get('/order/update-status/{order}', [OrderController::class, 'update'])->name('order.update');
+    Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
+    Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+
 
     Route::resource('category', CategoryController::class);
     // tiền tô là  'category' chấm đến phương thức index trong CategoryController
     //VD: {{route('category.index')}}
     Route::resource('product', ProductController::class);
+
     Route::get('product-delete-image/{image}', [ProductController::class, 'destroyImage'])->name('product.destroyImage');
+    //discount 
+
+
+    Route::get('/discount', [ProductController::class, 'discount'])->name('product.discount');
+    Route::post('/addDiscount', [ProductController::class, 'addDiscount'])->name('product.addDiscount');
+
+
+
+    Route::resource('warehouse', WarehouseController::class);
+    Route::get('warehouse/{warehouse}/export-pdf', [WarehouseController::class, 'exportPdf'])->name('warehouse.exportPdf');
+
+    // routes/web.php
+    Route::get('statistics', [StatisticsController::class, 'index'])->name('dashboard');
+    Route::post('statistics/filter', [StatisticsController::class, 'filter'])->name('admin.filter');
+    //tao don hang
+
+
+
+
+
+
+
+
 });
 

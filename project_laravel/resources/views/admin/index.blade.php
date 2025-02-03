@@ -1,8 +1,8 @@
 @extends('master.admin')
 
-@section('title', 'Dashboard')
+@section('title', 'Trang quản trị')
 @section('main')
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-lg-3 col-xs-6">
 
             <div class="small-box bg-aqua">
@@ -59,6 +59,6 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
 
 @endsection

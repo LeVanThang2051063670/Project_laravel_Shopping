@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Reset password</h2>
+                            <h2 class="title">Đổi mật khẩu</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Reset password</li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Trang chủ</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Đổi mật khẩu</li>
                                 </ol>
                             </nav>
                         </div>
@@ -33,11 +33,10 @@
                         <div class="col-lg-6">
                             <div class="contact-content">
                                 <div class="section-title mb-15">
-                                    <span class="sub-title">Reset password</span>
-                                    <h2 class="title">Get in <span>Touch</span></h2>
+                                    <span class="sub-title">Đổi mật khẩu</span>
+                                    <h2 class="title">Chào mừng bạn<span>T</span></h2>
                                 </div>
-                                <p>Meat provide well shaped fresh and the organic meat well <br> animals is Humans have
-                                    hunted schistoric</p>
+                                <p></p>
                                 <form action="" method="POST">
                                     @csrf
                                     <div class="contact-form-wrap">
@@ -57,7 +56,7 @@
                                             @enderror
                                         </div>
 
-                                        <button type="submit">Get New password</button>
+                                        <button type="submit">Tạo mật khẩu mới</button>
                                     </div>
                                 </form>
                                 <p class="ajax-response mb-0"></p>

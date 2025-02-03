@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Your Order Details</h2>
+                            <h2 class="title">Chi tiết đơn hàng</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Order detail</li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Trang chủ</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Chi tiết đơn hàng</li>
                                 </ol>
                             </nav>
                         </div>
@@ -84,11 +84,11 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Image</th>
-                                <th>Product Name</th>
-                                <th>Product quantity</th>
-                                <th>Product Price</th>
-                                <th>Sub Total</th>
+                                <th>Ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                                <th>Tổng giá</th>
 
                                 <th></th>
                             </tr>
@@ -116,7 +116,7 @@
 
                                 </tr>
                             @endforeach
-                            <th colspan="5" style="text-align: center">Sum</th>
+                            <th colspan="5" style="text-align: center">Tổng</th>
                             <th>{{ number_format($total) }}</th>
 
                         </tbody>

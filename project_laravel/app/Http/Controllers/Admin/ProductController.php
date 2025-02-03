@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ProductController extends Controller
 {
@@ -222,4 +224,75 @@ class ProductController extends Controller
         }
         return redirect()->back()->with('ok', 'Delete image fail');
     }
+
+    public function discount()
+    {
+        $categories = Category::all(); // Lấy tất cả danh mục
+        return view('admin.product.discount', compact('categories'));
+    }
+    // public function addDiscount(Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'category_id' => 'required', // Có thể là 'all' hoặc id danh mục
+    //         'discount' => 'required|numeric|min:0|max:100',
+    //     ]);
+
+    //     $discountFactor = 1 - ($validated['discount'] / 100); // Tính giảm giá
+
+    //     if ($validated['category_id'] === 'all') {
+    //         // Áp dụng giảm giá cho tất cả sản phẩm
+    //         Product::query()->update([
+    //             'sale_price' => DB::raw("price * $discountFactor")
+    //         ]);
+    //     } else {
+    //         // Kiểm tra xem danh mục có tồn tại không
+    //         $categoryExists = Category::find($validated['category_id']);
+
+    //         if (!$categoryExists) {
+    //             return redirect()->back()->with('no', 'Add discount fail');
+    //         }
+
+    //         // Áp dụng giảm giá cho sản phẩm thuộc danh mục
+    //         Product::where('category_id', $validated['category_id'])
+    //             ->update([
+    //                 'sale_price' => DB::raw("price * $discountFactor")
+    //             ]);
+    //     }
+
+    //     return redirect()->route('product.index')->with('ok', 'adddisscount thành công');
+    // }
+
+    public function addDiscount(Request $request)
+    {
+        $validated = $request->validate([
+            'categories' => 'required|array', // Mảng chứa 'all' hoặc id danh mục
+            'discount' => 'required|numeric|min:0|max:100',
+        ]);
+
+        $categories = $validated['categories'];
+        $discountFactor = 1 - ($validated['discount'] / 100); // Tính giảm giá
+
+        if (in_array('all', $categories)) {
+            // Nếu chọn "Tất cả", áp dụng giảm giá cho tất cả sản phẩm
+            Product::query()->update([
+                'sale_price' => DB::raw("price * $discountFactor")
+            ]);
+        } else {
+            // Lọc các danh mục hợp lệ
+            $validCategories = Category::whereIn('id', $categories)->pluck('id');
+
+            if ($validCategories->isEmpty()) {
+                return redirect()->back()->with('no', 'Không tìm thấy danh mục hợp lệ');
+            }
+
+            // Áp dụng giảm giá cho các sản phẩm thuộc danh mục đã chọn
+            Product::whereIn('category_id', $validCategories)
+                ->update([
+                    'sale_price' => DB::raw("price * $discountFactor")
+                ]);
+        }
+
+        return redirect()->route('product.index')->with('ok', 'Giảm giá thành công');
+    }
+
 }

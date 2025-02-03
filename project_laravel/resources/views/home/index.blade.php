@@ -14,8 +14,8 @@
                         <div class="col-lg-12">
                             <div class="banner-content">
                                 <h1 class="title wow fadeInUp" data-wow-delay=".2s">{{ $topBanner->name }}</h1>
-                                <span class="sub-title wow fadeInUp" data-wow-delay=".4s">Butcher & Meat shop</span>
-                                <a href="{{ $topBanner->link }}" class="btn wow fadeInUp" data-wow-delay=".6s">order now</a>
+                                <span class="sub-title wow fadeInUp" data-wow-delay=".4s">Cửa hàng thực phẩm</span>
+                                <a href="{{ $topBanner->link }}" class="btn wow fadeInUp" data-wow-delay=".6s">Mua ngay</a>
                             </div>
                             <div class="banner-img text-center wow fadeInUp" data-wow-delay=".8s">
                                 <img src="uploads/banner/banner_img.png" alt="">
@@ -65,10 +65,10 @@
                                         </div>
 
                                         @if ($np->sale_price > 0)
-                                            <span><s>${{ number_format($np->price) }}</s></span>
-                                            <span class="price">${{ number_format($np->sale_price) }}</span>
+                                            <span><s>{{ number_format($np->price) }}Đ</s></span>
+                                            <span class="price">{{ number_format($np->sale_price) }}Đ</span>
                                         @else
-                                            <span class="price">${{ number_format($np->price) }}</span>
+                                            <span class="price">{{ number_format($np->price) }}Đ</span>
                                         @endif
                                     </div>
                                     <div class="features-img">
@@ -100,7 +100,7 @@
                     <div class="col-lg-12">
                         <div class="section-title text-center mb-60">
                             <span class="sub-title">Organic Shop</span>
-                            <h2 class="title">Sale Products</h2>
+                            <h2 class="title">Sản phẩm sale mới</h2>
                             <div class="title-shape" data-background="uploads/images/title_shape.png"></div>
                         </div>
                     </div>
@@ -119,10 +119,10 @@
                                             href="{{ route('home.product', $sp->id) }}">{{ $sp->name }}</a></h4>
 
                                     @if ($sp->sale_price > 0)
-                                        <span><s>${{ number_format($sp->price) }}</s></span>
-                                        <span class="price">${{ number_format($sp->sale_price) }}</span>
+                                        <span><s>{{ number_format($sp->price) }}Đ</s></span>
+                                        <span class="price">{{ number_format($sp->sale_price) }}Đ</span>
                                     @else
-                                        <span class="price">${{ number_format($sp->price) }}</span>
+                                        <span class="price">{{ number_format($sp->price) }}Đ</span>
                                     @endif
 
                                     <div class="favorite-action">
@@ -194,7 +194,7 @@
                     <div class="col-lg-12">
                         <div class="section-title text-center mb-70">
                             <span class="sub-title">Organic Shop</span>
-                            <h2 class="title">Features Products</h2>
+                            <h2 class="title">Sản phẩm khác</h2>
                             <div class="title-shape" data-background="uploads/images/title_shape.png"></div>
                         </div>
                     </div>
@@ -235,10 +235,10 @@
                                     <div class="product-price">
 
                                         @if ($fp->sale_price > 0)
-                                            <span><s>${{ number_format($fp->price) }}</s></span>
-                                            <span class="price">${{ number_format($fp->sale_price) }}</span>
+                                            <span><s>{{ number_format($fp->price) }}Đ</s></span>
+                                            <span class="price">{{ number_format($fp->sale_price) }}Đ</span>
                                         @else
-                                            <span class="price">${{ number_format($fp->price) }}</span>
+                                            <span class="price">{{ number_format($fp->price) }}Đ</span>
                                         @endif
                                         <a href="#" class="tag">Garden</a>
                                     </div>
@@ -249,14 +249,14 @@
 
                 </div>
                 <div class="shop-now-btn text-center mt-40">
-                    <a href="shop.html" class="btn">Shop Now</a>
+                    <a href="shop.html" class="btn">MUA NGAY</a>
                 </div>
             </div>
         </section>
         <!-- product-area-end -->
 
         <!-- team-area -->
-        <section class="team-area team-bg" data-background="uploads/bg/team_bg.jpg">
+        {{-- <section class="team-area team-bg" data-background="uploads/bg/team_bg.jpg">
             <div class="container custom-container-two">
                 <div class="row align-items-center">
                     <div class="col-lg-4">
@@ -316,7 +316,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- team-area-end -->
 
         <!-- faq-area -->
@@ -333,8 +333,8 @@
                     <div class="col-lg-6">
                         <div class="faq-content">
                             <div class="section-title mb-60">
-                                <span class="sub-title">Customer Quotes</span>
-                                <h2 class="title">Frequently <span>Asked</span> Questions.</h2>
+                                <span class="sub-title">Khách hàng thắc mắc</span>
+                                <h2 class="title">Giải đáp <span>Hỏi</span> Trả lời.</h2>
                             </div>
                             <div class="faq-wrap">
                                 <div class="accordion" id="accordionExample">
@@ -343,14 +343,14 @@
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
-                                                hamburg Meat is animal flesh food.
+                                                Thịt heo.
                                             </button>
                                         </h2>
                                         <div id="collapseOne" class="accordion-collapse collapse show"
                                             data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p>Meat provide well shaped fresh and the organic meat well animals is
-                                                    Humans have hunted schistoric times</p>
+                                                <p>Thịt heo cung cấp hình dáng tốt, tươi ngon và hữu cơ từ các loài động vật
+                                                    khỏe mạnh</p>
                                             </div>
                                         </div>
                                     </div>
@@ -359,14 +359,14 @@
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                                                 aria-expanded="false" aria-controls="collapseTwo">
-                                                Revolution allowed the of animals
+                                                Cá
                                             </button>
                                         </h2>
                                         <div id="collapseTwo" class="accordion-collapse collapse"
                                             data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p>Meat provide well shaped fresh and the organic meat well animals is
-                                                    Humans have hunted schistoric times</p>
+                                                <p>Thịt cá cung cấp hình dáng tốt, tươi ngon và hữu cơ từ các loài động vật
+                                                    khỏe mạnh</p>
                                             </div>
                                         </div>
                                     </div>
@@ -375,14 +375,14 @@
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                                 aria-expanded="false" aria-controls="collapseThree">
-                                                Meat is animal flesh food.
+                                                Thịt bò
                                             </button>
                                         </h2>
                                         <div id="collapseThree" class="accordion-collapse collapse"
                                             data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p>Meat provide well shaped fresh and the organic meat well animals is
-                                                    Humans have hunted schistoric times</p>
+                                                <p>Thịt bò cung cấp hình dáng tốt, tươi ngon và hữu cơ từ các loài động vật
+                                                    khỏe mạnh</p>
                                             </div>
                                         </div>
                                     </div>
@@ -407,11 +407,12 @@
                     <div class="col-lg-8">
                         <div class="cta-content">
                             <img src="uploads/icons/cta_icon.png" alt="">
-                            <h2 class="title">Get a Free Quote</h2>
+                            <h2 class="title">Báo giá miễn phí</h2>
                             <div class="cta-bottom">
-                                <a href="shop.html" class="btn">buy now</a>
-                                <a href="tel:0123456789" class="btn call-btn"><i class="fas fa-headphones-alt"></i>make a
-                                    call</a>
+                                <a href="shop.html" class="btn">Mua Ngay</a>
+                                <a href="tel:0123456789" class="btn call-btn"><i class="fas fa-headphones-alt"></i>Gọi
+                                    ngay
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -427,7 +428,7 @@
                     <div class="col-lg-12">
                         <div class="section-title text-center mb-70">
                             <span class="sub-title">Latest News</span>
-                            <h2 class="title">Latest News Update</h2>
+                            <h2 class="title">Tin tức mới nhất</h2>
                             <div class="title-shape" data-background="uploads/images/title_shape.png"></div>
                         </div>
                     </div>
@@ -441,15 +442,15 @@
                             <div class="blog-post-content">
                                 <div class="blog-meta">
                                     <ul class="list-wrap">
-                                        <li><a href="blog.html"><i class="fas fa-user"></i>Hamolin Pilot</a></li>
+                                        <li><a href="blog.html"><i class="fas fa-user"></i>Thắngdz</a></li>
                                         <li><i class="fas fa-comments"></i>03</li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a href="blog-details.html">Hamburg Meat is Animal Flesh Food</a></h4>
-                                <p>Meat provide well shapd fresh and organic meat well animals is Humans.</p>
+                                <h4 class="title"><a href="#">Lợi ích khi ăn thịt</a></h4>
+                                <p>Thịt là nguồn thực phẩm thiết yếu cho bữa ăn hàng ngày</p>
                                 <div class="blog-post-bottom">
-                                    <a href="blog-details.html" class="link-btn">Read More</a>
-                                    <a href="blog-details.html" class="link-arrow"><i class="fas fa-angle-right"></i></a>
+                                    <a href="#" class="link-btn">Đọc thêm</a>
+                                    <a href="#" class="link-arrow"><i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -457,20 +458,20 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-post-item">
                             <div class="blog-post-thumb">
-                                <a href="blog-details.html"><img src="uploads/blog/blog_post02.jpg" alt=""></a>
+                                <a href="#"><img src="uploads/blog/blog_post02.jpg" alt=""></a>
                             </div>
                             <div class="blog-post-content">
                                 <div class="blog-meta">
                                     <ul class="list-wrap">
-                                        <li><a href="blog.html"><i class="fas fa-user"></i>Hamolin Pilot</a></li>
+                                        <li><a href="blog.html"><i class="fas fa-user"></i>Hoàng 9 ngón</a></li>
                                         <li><i class="fas fa-comments"></i>03</li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a href="blog-details.html">Good Source of Iron And Flesh Food</a></h4>
-                                <p>Meat provide well shapd fresh and organic meat well animals is Humans.</p>
+                                <h4 class="title"><a href="#">Thực phẩm giàu chất đạm</a></h4>
+                                <p>Chất đạm rất quan trọng trong quá trình trao đổi chất của người</p>
                                 <div class="blog-post-bottom">
-                                    <a href="blog-details.html" class="link-btn">Read More</a>
-                                    <a href="blog-details.html" class="link-arrow"><i class="fas fa-angle-right"></i></a>
+                                    <a href="#" class="link-btn">Đọc thêm</a>
+                                    <a href="#" class="link-arrow"><i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -478,21 +479,20 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-post-item">
                             <div class="blog-post-thumb">
-                                <a href="blog-details.html"><img src="uploads/blog/blog_post03.jpg" alt=""></a>
+                                <a href="#"><img src="uploads/blog/blog_post03.jpg" alt=""></a>
                             </div>
                             <div class="blog-post-content">
                                 <div class="blog-meta">
                                     <ul class="list-wrap">
-                                        <li><a href="blog.html"><i class="fas fa-user"></i>Hamolin Pilot</a></li>
+                                        <li><a href="blog.html"><i class="fas fa-user"></i>Long 9 suối</a></li>
                                         <li><i class="fas fa-comments"></i>03</li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a href="blog-details.html">Chicken Sausage For Sale Humanely
-                                        Raised</a></h4>
-                                <p>Meat provide well shapd fresh and organic meat well animals is Humans.</p>
+                                <h4 class="title"><a href="#">Xúc xích được làm từ thịt heo</a></h4>
+                                <p>Xúc xích là một thực phẩm đã được chế biến, thuận tiện cho việc nấu ăn nhanh</p>
                                 <div class="blog-post-bottom">
-                                    <a href="blog-details.html" class="link-btn">Read More</a>
-                                    <a href="blog-details.html" class="link-arrow"><i class="fas fa-angle-right"></i></a>
+                                    <a href="#" class="link-btn">Đọc thêm</a>
+                                    <a href="#" class="link-arrow"><i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>

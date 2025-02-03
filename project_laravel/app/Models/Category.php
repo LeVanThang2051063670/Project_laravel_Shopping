@@ -19,7 +19,7 @@ class Category extends Model
     public function products()
     {
         return $this->hasMany(Product::class, 'category_id', 'id')->orderBy('created_at', 'DESC');
-        //category_id khóa ngoại của bảng product
+        //category_id khóa ngoại của bảng product tham chieu den id 
         //id là khóa của bảng category
     }
 }

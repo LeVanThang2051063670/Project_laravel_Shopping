@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Oder checkout</h2>
+                            <h2 class="title">Hóa đơn thanh toán</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Ordercheck out</li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Trang chủ</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Hóa đơn</li>
                                 </ol>
                             </nav>
                         </div>
@@ -63,7 +63,7 @@
 
 
 
-                                    <button type="submit">Place Order</button>
+                                    <button type="submit">Đặt hàng</button>
                                 </div>
 
 
@@ -74,11 +74,11 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Image</th>
+                                        <th>Mã</th>
+                                        <th>Tên</th>
+                                        <th>Giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Ảnh</th>
                                         <th></th>
                                     </tr>
                                 </thead>

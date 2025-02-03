@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2024 at 12:21 PM
+-- Generation Time: Feb 03, 2025 at 08:38 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -45,28 +45,10 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `name`, `link`, `image`, `description`, `position`, `prioty`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Banner 1', '#', 'banner_bg.png', '', 'top-banner', 0, 1, '2024-07-30', NULL),
+(1, 'Fresh Meet', '#', 'banner_bg.png', '', 'top-banner', 0, 1, '2024-07-30', NULL),
 (2, 'gallery 1', '#', 'gallery_img01.png', '', 'gallery', 3, 1, '2024-07-30', NULL),
 (3, 'gallery 2', '#', 'gallery_img02.png', '', 'gallery', 2, 1, '2024-07-30', NULL),
 (4, 'gallery 3', '#', 'gallery_img03.png', '', 'gallery', 1, 1, '2024-07-30', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blogs`
---
-
-CREATE TABLE `blogs` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `link` varchar(100) NOT NULL DEFAULT '#',
-  `image` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `position` varchar(100) DEFAULT 'top-banner',
-  `status` tinyint(1) DEFAULT 0,
-  `created_at` date DEFAULT current_timestamp(),
-  `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -86,7 +68,10 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`customer_id`, `product_id`, `price`, `quantity`) VALUES
-(16, 6, 50000.00, 4);
+(16, 8, 90000.00, 1),
+(16, 11, 80000.00, 1),
+(19, 12, 80000.00, 1),
+(19, 13, 75000.00, 1);
 
 -- --------------------------------------------------------
 
@@ -107,26 +92,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Dưa hấu', 1, '2024-07-30', NULL),
-(2, 'Cà chua', 1, '2024-07-30', NULL),
-(3, 'Chuối tiến vua', 1, '2024-07-30', NULL),
-(4, 'Nho mỹ', 1, '2024-07-30', NULL),
-(5, 'Cà pháo', 1, '2024-08-20', '2024-08-20');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `comments`
---
-
-CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `comment` text DEFAULT NULL,
-  `created_at` date DEFAULT current_timestamp(),
-  `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(10, 'Thịt', 1, '2024-11-14', '2025-01-16'),
+(11, 'Sườn', 1, '2024-11-14', '2025-01-16'),
+(12, 'Cá', 1, '2024-11-14', '2025-01-16'),
+(13, 'Rau củ quả', 1, '2024-11-14', '2025-01-16'),
+(14, 'Xúc xích', 1, '2024-11-14', '2025-01-16'),
+(15, 'Rau', 1, '2025-01-18', '2025-01-18');
 
 -- --------------------------------------------------------
 
@@ -152,9 +123,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `address`, `gender`, `password`, `email_verified_at`, `created_at`, `updated_at`) VALUES
-(11, 'Lê Văn Thắng', 'thanglv229@gmail.com', '0344786805', 'ha noi', 0, '$2y$12$b.5MNvuHPJfJChiiP7IQ8uK8zuwQ8otZjnJKzJBhRXHQogBTu6LKG', NULL, '2024-08-03', '2024-08-03'),
-(16, 'Lê Văn Thắng', 'thanglevan2k2@gmail.com', '0345638912', 'thanh ho', 1, '$2y$12$50M/Bq5bxhKYRRRI8LETM.quPU2lVUaFlW/q2l6mwBULdK85XPRoe', '2024-08-04', '2024-08-04', '2024-08-05'),
-(18, 'Thang adas', 'daucatmoilinux@gmail.com', '0344786803', 'thanh hoa', 1, '$2y$12$VJ4znL185kovhxk.88zkXOvYuJGVYgO2nqhuaB.ThCxA2dkULpLka', NULL, '2024-08-04', '2024-08-04');
+(16, 'Lê Văn Thắng', 'thanglevan2k2@gmail.com', '0345638912', 'thanh hoa', 1, '$2y$12$50M/Bq5bxhKYRRRI8LETM.quPU2lVUaFlW/q2l6mwBULdK85XPRoe', '2024-08-04', '2024-08-04', '2025-01-16'),
+(19, 'Thanglv', 'thanglv229@gmail.com', '0345638915', 'ha noi', 1, '$2y$12$dO3Z/giJCojHrCvmTO0mKuGGf6s.lGYFqm4WIxhb9R1LHkOrWC0gC', '2024-11-06', '2024-11-06', '2025-01-17');
 
 -- --------------------------------------------------------
 
@@ -174,7 +144,8 @@ CREATE TABLE `customer_reset_tokens` (
 --
 
 INSERT INTO `customer_reset_tokens` (`email`, `token`, `created_at`, `updated_at`) VALUES
-('thanglevan2k2@gmail.com', 'LbFpJKOazzlXBdxhm0M1hTbTaJ6UaN7YXUZorrbL', '2024-08-05', '2024-08-05');
+('thanglevan2k2@gmail.com', 'LbFpJKOazzlXBdxhm0M1hTbTaJ6UaN7YXUZorrbL', '2024-08-05', '2024-08-05'),
+('thanglv229@gmail.com', 'oxw5METxbwbWNMe4WybVJBU7RfIKRMnhbh4VIpEa', '2025-01-17', '2025-01-17');
 
 -- --------------------------------------------------------
 
@@ -195,10 +166,8 @@ CREATE TABLE `favorites` (
 --
 
 INSERT INTO `favorites` (`id`, `customer_id`, `product_id`, `created_at`, `updated_at`) VALUES
-(9, 16, 1, '2024-08-13', '2024-08-13'),
-(10, 16, 2, '2024-08-13', '2024-08-13'),
-(11, 16, 3, '2024-08-13', '2024-08-13'),
-(12, 16, 6, '2024-08-16', '2024-08-16');
+(14, 16, 12, '2024-12-02', '2024-12-02'),
+(16, 19, 13, '2025-01-18', '2025-01-18');
 
 -- --------------------------------------------------------
 
@@ -212,7 +181,7 @@ CREATE TABLE `orders` (
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(100) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `customer_id` int(11) NOT NULL,
+  `customer_id` int(11) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `token` varchar(50) DEFAULT NULL,
   `created_at` date DEFAULT current_timestamp(),
@@ -224,8 +193,12 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `address`, `customer_id`, `status`, `token`, `created_at`, `updated_at`) VALUES
-(1, 'Lê Văn Thắng', 'thanglevan2k2@gmail.com', '0345638912', 'thanh ho', 16, 1, NULL, '2024-08-16', '2024-08-16'),
-(2, 'Lê Văn Thắng', 'thanglevan2k2@gmail.com', '0345638912', 'thanh ho', 16, 2, NULL, '2024-08-19', '2024-08-19');
+(32, 'anh thắng dz', 'thanglv229@gmail.com', '0344786805', 'quang trung', NULL, 2, NULL, '2024-12-14', '2024-12-14'),
+(33, 'Lê Văn Thắng', 'thanglevan2k2@gmail.com', '0345638912', 'thanh ho', 16, 1, NULL, '2024-12-14', '2024-12-14'),
+(34, 'Lê Văn Thắng', 'thanglevan2k2@gmail.com', '0345638912', 'thanh ho', 16, 1, NULL, '2024-12-14', '2024-12-14'),
+(35, 'Thanglv', 'thanglv229@gmail.com', '0345638915', 'ha noi', 19, 1, NULL, '2025-01-18', '2025-01-18'),
+(36, 'Duy', 'duylv@gmail.com', '0392240313', 'hh', NULL, 2, NULL, '2025-01-18', '2025-01-18'),
+(37, 'Thanglv', 'thanglv229@gmail.com', '0345638915', 'ha noi', 19, 1, NULL, '2025-01-18', '2025-01-18');
 
 -- --------------------------------------------------------
 
@@ -245,10 +218,15 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`order_id`, `product_id`, `quantity`, `price`) VALUES
-(1, 1, 1, 350000),
-(1, 3, 1, 350000),
-(1, 6, 3, 50000),
-(2, 6, 4, 50000);
+(32, 8, 1, 100000),
+(32, 9, 1, 50000),
+(33, 8, 1, 90000),
+(33, 12, 1, 80000),
+(34, 11, 1, 80000),
+(35, 13, 1, 75000),
+(36, 13, 1, 100000),
+(37, 12, 1, 80000),
+(37, 13, 1, 75000);
 
 -- --------------------------------------------------------
 
@@ -266,18 +244,21 @@ CREATE TABLE `products` (
   `description` text NOT NULL,
   `status` tinyint(1) DEFAULT 0,
   `created_at` date DEFAULT current_timestamp(),
-  `updated_at` date DEFAULT NULL
+  `updated_at` date DEFAULT NULL,
+  `quantity` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `image`, `price`, `sale_price`, `category_id`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Product 22', 'CVAjbSL7J4pviKov3SiUc04reHrysTYmg7RUJZSZ.png', 500000.00, 350000.00, 1, 'DASDASDAS', 0, '2024-08-08', '2024-08-08'),
-(2, 'Product 13', 'h2_product02.png', 500000.00, 350000.00, 2, 'ASDSADSAD', 0, '2024-08-08', '2024-08-08'),
-(3, 'Product 4', 'h2_product03.png', 500000.00, 350000.00, 1, '131312312312321', 0, '2024-08-08', '2024-08-08'),
-(6, 'Product 51', 'gjPJxZaDTtQP7ZudOHqu0c1D7Dni0bvoglvh4i2g.png', 100000.00, 50000.00, 1, 'dsadasd', 1, '2024-08-10', '2024-08-12');
+INSERT INTO `products` (`id`, `name`, `image`, `price`, `sale_price`, `category_id`, `description`, `status`, `created_at`, `updated_at`, `quantity`) VALUES
+(8, 'Thịt bò', 'uKr2faCLjvAJCbCNymj4jQp3s1xe9UOUcGkyDgH4.png', 100000.00, 90000.00, 10, 'Meat is an essential food', 1, '2024-11-14', '2025-01-17', 3),
+(9, 'Đùi gà', 'AMTvuKXH4fvXnbyjko12JN6FBXQXD1nsCdBr3wOs.png', 50000.00, 45000.00, 10, 'Meat is an essential food', 1, '2024-11-14', '2025-01-16', 12),
+(10, 'Sườn heo', 'fIYl6T1bS0VULF4UleXoSqJV6KokkVlNTnPsgY6g.png', 100000.00, 90000.00, 10, 'Meat Beef&nbsp', 1, '2024-11-14', '2025-01-16', 4),
+(11, 'Xúc xích', 'OWLya7qkqFElUghuZFQl6ZtiyKgA0BHvLrxwHRme.png', 95000.00, 80000.00, 14, 'Sausages are delicious good', 1, '2024-11-14', '2025-01-16', 3),
+(12, 'Thịt trâu', 'OiKUh3LfGX75eJQomV7Nf60UgdAjkAyENzET0SBd.png', 100000.00, 80000.00, 10, 'dddd', 1, '2024-11-30', '2025-01-18', 3),
+(13, 'Cá mè', '3g7zWd1lJmtBzc4BYA20aFo1oFEB1qaXSvkUwI7g.png', 100000.00, 75000.00, 12, '<p>Cá mè đen</p>', 1, '2025-01-17', '2025-01-18', 10);
 
 -- --------------------------------------------------------
 
@@ -299,19 +280,10 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `image`, `product_id`, `status`, `created_at`, `updated_at`) VALUES
-(33, 'ZEb4tmv8kKHprPIEF5jHvxQZv6yv4sxXDXYc6ECf.png', 6, 0, '2024-08-10', '2024-08-10'),
-(34, 'PoetqRZEZRZthQTvLK3jUQiwHNdWxv4LpCPJYWUe.png', 6, 0, '2024-08-10', '2024-08-10'),
-(35, '7eWrSR7gKuHEKZvbqvarc7p6M8hsxfTKnL5f8iQw.png', 6, 0, '2024-08-10', '2024-08-10'),
-(36, '6r5zQnjTqrXgDYqhPmaJJJQIYSRByXhkeeA4369p.png', 6, 0, '2024-08-10', '2024-08-10'),
-(37, 'yWMcTfMQUb9kcZ6DFtZK2rE0kP4upWQuhARfJXbD.png', 3, 0, '2024-08-12', '2024-08-12'),
-(38, '0Gq25uSGdWuCyUKVr5ZSjlsC0UIBhaNaC5y0ZLUT.png', 3, 0, '2024-08-12', '2024-08-12'),
-(39, '3iwRl02euM2ac5fRSpLdA7RZClWHs8SLwL4o04ef.png', 3, 0, '2024-08-12', '2024-08-12'),
-(40, 'YyWMRlTB0bs3aTekvvIZjKku4iK5WHb2h1gJHLpp.png', 3, 0, '2024-08-12', '2024-08-12'),
-(41, 'vILddKgSdIR74bprWZyNBLE05i3xZ53v9KolrzHT.png', 2, 0, '2024-08-12', '2024-08-12'),
-(42, 'QcQ3pwL4pFCrkbFML9vgSQIQfiQK9hWVYAbtnMLT.png', 2, 0, '2024-08-12', '2024-08-12'),
-(43, 'Cj3SOwTeOT0XYKIZ5Q0dVapQsp8xi2pxnm9Aw4xZ.png', 2, 0, '2024-08-12', '2024-08-12'),
-(44, 'g5KtgQNIy3xwoPBeIjOgANNpbW53GKgN6zhh4rnI.png', 1, 0, '2024-08-12', '2024-08-12'),
-(45, 'N4flMwUp1KdJItlHh90jhQRo6Akh1n1VSxDpu7Mp.png', 1, 0, '2024-08-12', '2024-08-12');
+(48, 'jnYBnxyDywiPFS6JZpOjsB6c9sAP9sxMQWwOUXtJ.png', 8, 0, '2024-11-14', '2024-11-14'),
+(49, 'o6SgIOF5rhiroF3ipU29iSs6DG9Ee9QmLPZjXCbW.png', 9, 0, '2024-11-14', '2024-11-14'),
+(50, 'LNprChmrorP5Mm5Anq9L2pkJInf42hnWryuZPTw1.png', 10, 0, '2024-11-14', '2024-11-14'),
+(51, 'LI6estX6yLWF1dtVYUL8OGdBK8IUGKEEooCvMPTw.png', 11, 0, '2024-11-14', '2024-11-14');
 
 -- --------------------------------------------------------
 
@@ -333,8 +305,40 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(3, 'Admin Manager', 'admin@gmail.com', '$2y$12$OPR9rIQJuyqFAebHpgX8Tu0Y4nzZ5cmj6e0oq66QIwOHPezHGnDja', '2024-08-06', '2024-08-06'),
-(4, 'Admin Manager1', 'admin1@gmail.com', '$2y$12$nqIo5UJhN5ztwjfEGKIMredysJHjBfm5txTcs2ThipvBcbs95l5mK', '2024-08-07', '2024-08-07');
+(3, 'Admin Thang', 'admin@gmail.com', '$2y$12$OPR9rIQJuyqFAebHpgX8Tu0Y4nzZ5cmj6e0oq66QIwOHPezHGnDja', '2024-08-06', '2024-08-06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `warehouse_transactions`
+--
+
+CREATE TABLE `warehouse_transactions` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `transaction_type` enum('import') NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `cost_price` float(10,2) NOT NULL,
+  `expiration_date` datetime DEFAULT NULL,
+  `note` text DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `import_code` longtext DEFAULT NULL,
+  `quantity_import` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `warehouse_transactions`
+--
+
+INSERT INTO `warehouse_transactions` (`id`, `product_id`, `transaction_type`, `quantity`, `cost_price`, `expiration_date`, `note`, `created_at`, `import_code`, `quantity_import`) VALUES
+(98, 8, 'import', 4, 13000.00, '2025-01-04 00:00:00', 'a', '2024-12-14 22:21:45', '\"IMP-oOaG-20241214,IMP-raUf-20241214,IMP-8SDO-20241214,IMP-ozhr-20241214\"', 5),
+(99, 9, 'import', 2, 23000.00, '2025-01-11 00:00:00', 'b', '2024-12-14 22:22:02', '\"IMP-MI7y-20241214,IMP-56JS-20241214\"', 3),
+(100, 10, 'import', 4, 15000.00, '2024-12-28 00:00:00', 'ad', '2024-12-14 22:22:28', '[\"IMP-QOPj-20241214\",\"IMP-gpRI-20241214\",\"IMP-r22g-20241214\",\"IMP-kKzo-20241214\"]', 4),
+(101, 11, 'import', 1, 12000.00, '2025-01-10 00:00:00', 'a', '2024-12-14 22:22:46', '\"IMP-Xrsy-20241214\"', 2),
+(102, 9, 'import', 10, 45.00, '2024-12-19 00:00:00', 'e', '2024-12-14 22:23:03', '[\"IMP-eEww-20241214\",\"IMP-UZVZ-20241214\",\"IMP-iRgk-20241214\",\"IMP-KLEs-20241214\",\"IMP-1ANS-20241214\",\"IMP-78JP-20241214\",\"IMP-0Snq-20241214\",\"IMP-NfG0-20241214\",\"IMP-EtSM-20241214\",\"IMP-N5f0-20241214\"]', 10),
+(103, 11, 'import', 2, 15000.00, '2025-01-03 00:00:00', 'v', '2024-12-14 22:24:55', '[\"IMP-wXIY-20241214\",\"IMP-gPKr-20241214\"]', 2),
+(104, 12, 'import', 4, 14000.00, '2024-12-28 00:00:00', 'cho', '2024-12-14 22:43:26', '\"IMP-e9gX-20241214,IMP-Z5V0-20241214,IMP-e3FT-20241214,IMP-cyi8-20241214\"', 5),
+(105, 13, 'import', 9, 70000.00, '2025-03-31 00:00:00', 'tháng 3 hết hạn', '2025-01-17 23:08:43', '\"IMP-0Zfv-20250117,IMP-iZIy-20250117,IMP-3CRg-20250117,IMP-rhw8-20250117,IMP-MenW-20250117,IMP-96Us-20250117,IMP-JQFX-20250117,IMP-szyI-20250117,IMP-vojZ-20250117\"', 12);
 
 --
 -- Indexes for dumped tables
@@ -344,13 +348,6 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`, `updated_a
 -- Indexes for table `banners`
 --
 ALTER TABLE `banners`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
-
---
--- Indexes for table `blogs`
---
-ALTER TABLE `blogs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
@@ -367,14 +364,6 @@ ALTER TABLE `carts`
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
-
---
--- Indexes for table `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `customer_id` (`customer_id`),
-  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `customers`
@@ -436,6 +425,13 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `warehouse_transactions`
+--
+ALTER TABLE `warehouse_transactions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -446,58 +442,52 @@ ALTER TABLE `banners`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `blogs`
---
-ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `comments`
---
-ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `warehouse_transactions`
+--
+ALTER TABLE `warehouse_transactions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- Constraints for dumped tables
@@ -509,13 +499,6 @@ ALTER TABLE `users`
 ALTER TABLE `carts`
   ADD CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
   ADD CONSTRAINT `carts_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
-
---
--- Constraints for table `comments`
---
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
 --
 -- Constraints for table `favorites`
@@ -548,6 +531,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `product_images`
   ADD CONSTRAINT `product_images_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+
+--
+-- Constraints for table `warehouse_transactions`
+--
+ALTER TABLE `warehouse_transactions`
+  ADD CONSTRAINT `warehouse_transactions_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

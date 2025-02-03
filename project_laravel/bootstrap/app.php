@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // Đăng ký middleware ở đây
         $middleware->alias([
             'customer' => \App\Http\Middleware\CustomerMiddleware::class
+
         ]);
 
 

@@ -243,11 +243,12 @@ class AccountController extends Controller
 
         //dd($check);
         if ($check) {
-            return redirect()->back()->with('ok', 'Update password success');
+            //return redirect()->back()->with('ok', 'Update password success');
+            return redirect()->route('account.login')->with('ok', 'Đã cập nhật lại mật khẩu , bạn có thể login lại');
 
         }
 
-        return redirect()->back()->with('no', 'Update fail');
+        return redirect()->back()->with('no', 'Thất bại');
 
 
 

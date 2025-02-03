@@ -10,9 +10,9 @@ class Product extends Model
     use HasFactory;
 
     public $appends = ['favorited'];
-    protected $fillable = ['name', 'status', 'price', 'sale_price', 'image', 'category_id', 'description'];
+    protected $fillable = ['name', 'status', 'price', 'sale_price', 'quantities', 'image', 'category_id', 'description'];
 
-    // thiết lập quan hệ 1 -1(1 san pham co mot danh muc)
+    // thiết lập quan hệ 1 -1(1 san pham chi thuoc ve mot danh muc) 
     public function cat()
     {
         //từ sản phẩm muốn đến cat thì ta có hasOne
@@ -24,6 +24,12 @@ class Product extends Model
     {
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
+    // App\Models\Product.php
+    public function warehouseTransactions()
+    {
+        return $this->hasMany(WarehouseTransaction::class, 'product_id');
+    }
+
 
     public function getFavoritedAttribute()
     {

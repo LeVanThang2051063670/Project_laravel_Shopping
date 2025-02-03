@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Login</h2>
+                            <h2 class="title">Đăng nhập</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Login</li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Trang chủ</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Đăng nhập</li>
                                 </ol>
                             </nav>
                         </div>
@@ -33,7 +33,7 @@
                         <div class="col-lg-6">
                             <div class="contact-content">
                                 <div class="section-title mb-15">
-                                    <span class="sub-title">Login</span>
+                                    <span class="sub-title">Đăng nhập</span>
                                     <h2 class="title">Get in <span>Touch</span></h2>
                                 </div>
                                 <p>Meat provide well shaped fresh and the organic meat well <br> animals is Humans have
@@ -54,12 +54,12 @@
 
                                         </div>
 
-                                        <button type="submit">Login</button>
+                                        <button type="submit">Đăng nhập</button>
                                         <a style="display: block; text-align:center;margin-top:15px"
-                                            href="{{ route('account.register') }}" type="submit">Click here to create new
-                                            account</a>
+                                            href="{{ route('account.register') }}" type="submit">Bấm vào để tạo mật khẩu
+                                            mới</a>
                                         <a style="display: block; text-align:center;margin-top:15px"
-                                            href="{{ route('account.forgot_password') }}" type="submit">Forgot password
+                                            href="{{ route('account.forgot_password') }}" type="submit">Quên mật khẩu
                                             ?</a>
                                     </div>
                                 </form>

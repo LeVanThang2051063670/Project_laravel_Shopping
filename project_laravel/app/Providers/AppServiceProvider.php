@@ -7,6 +7,7 @@ use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Pagination\Paginator;
 use App\Models\Category;
 use App\Models\Cart;
+use ConsoleTVs\Charts\Classes\Charts;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+
     }
 
     /**

@@ -12,7 +12,7 @@
                             <h2 class="title">{{ $cat->name }}</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Trang chu</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">{{ $cat->name }}</li>
                                 </ol>
                             </nav>
@@ -33,17 +33,17 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
                                         <div class="shop-showing-result">
-                                            <p>Showing 1–09 of 20 results</p>
+                                            <p>Hiện số lượng sản phẩm</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="shop-ordering">
                                             <select name="orderby" class="orderby">
-                                                <option value="Default sorting">Sort by Top Rating</option>
-                                                <option value="Sort by popularity">Sort by popularity</option>
+                                                <option value="Default sorting">Sắp xếp theo mặc định</option>
+                                                {{-- <option value="Sort by popularity">Sort by popularity</option>
                                                 <option value="Sort by average rating">Sort by average rating</option>
                                                 <option value="Sort by latest">Sort by latest</option>
-                                                <option value="Sort by latest">Sort by latest</option>
+                                                <option value="Sort by latest">Sort by latest</option> --}}
                                             </select>
                                         </div>
                                     </div>
@@ -66,10 +66,10 @@
                                                     </h2>
 
                                                     @if ($prod->sale_price > 0)
-                                                        <span><s>${{ number_format($prod->price) }}</s></span>
-                                                        <span class="price">${{ number_format($prod->sale_price) }}</span>
+                                                        <span><s>{{ number_format($prod->price) }}Đ</s></span>
+                                                        <span class="price">{{ number_format($prod->sale_price) }}Đ</span>
                                                     @else
-                                                        <span class="price">${{ number_format($prod->price) }}</span>
+                                                        <span class="price">{{ number_format($prod->price) }}Đ</span>
                                                     @endif
                                                     <div class="favorite-action">
                                                         @if (auth('cus')->check())
@@ -92,7 +92,7 @@
                                                                     class="fa fa-shopping-cart"></i></a>
                                                         @endif
                                                     </div>
-                                                    <div class="product-cart-wrap">
+                                                    <div class="product-cart-wrap" style="display: none">
                                                         <form action="#">
                                                             <div class="cart-plus-minus">
                                                                 <input type="text" value="1">
@@ -118,8 +118,8 @@
                         <div class="col-xl-3 col-lg-4">
                             <div class="shop-sidebar">
                                 <div class="shop-widget">
-                                    <h4 class="sw-title">FILTER BY</h4>
-                                    <div class="price_filter">
+                                    <h4 class="sw-title">Lọc</h4>
+                                    <div class="price_filter" style="display:none">
                                         <div id="slider-range"></div>
                                         <div class="price_slider_amount">
                                             <input type="submit" class="btn" value="Filter">
@@ -128,12 +128,12 @@
                                                 placeholder="Add Your Price" />
                                         </div>
                                         <div class="clear-btn">
-                                            <button type="reset"><i class="far fa-trash-alt"></i>Clear all</button>
+                                            <button type="reset"><i class="far fa-trash-alt"></i>Xóa </button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="shop-widget">
-                                    <h4 class="sw-title">Category</h4>
+                                    <h4 class="sw-title">Danh mục</h4>
                                     <div class="shop-cat-list">
                                         <ul class="list-wrap">
                                             @foreach ($cats_home as $cat)
@@ -152,7 +152,7 @@
                                     </div>
                                 </div>
                                 <div class="shop-widget">
-                                    <h4 class="sw-title">Latest Products</h4>
+                                    <h4 class="sw-title">Sản phẩm liên quan</h4>
                                     <div class="latest-products-wrap">
                                         @foreach ($news_products as $np)
                                             <div class="lp-item">

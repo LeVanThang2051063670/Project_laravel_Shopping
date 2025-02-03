@@ -11,13 +11,8 @@ class Banner extends Model
 
     protected $fillable = ['name', 'status', 'link', 'image', 'description', 'prioty', 'position'];
 
-    // thiết lập quan hệ 1 nhiều 
-    public function products()
-    {
-        return $this->hasMany(Product::class, 'category_id', 'id');
-        //category_id khóa ngoại của bảng product
-        //id là khóa của bảng category
-    }
+
+
 
     public function scopeGetBanner($q, $pos = 'top-banner')
     {

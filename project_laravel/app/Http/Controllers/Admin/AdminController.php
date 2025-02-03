@@ -32,7 +32,7 @@ class AdminController extends Controller
     {
         //Log::info('Email input:', ['email' => $req->email]);
         $req->validate([
-            'email' => 'required|email|exists:users,email',
+            'email' => 'required|email|exists:users,email',//kiem tra tk co ton tai trong user
             'password' => 'required'
         ]);
 

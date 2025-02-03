@@ -4,4 +4,4 @@
 
 </p>
 
-<p><a href="{{ route('account.veryfy', $account->email) }}">Click here to verify your account</a></p>
+<p><a href="{{ route('account.veryfy', $account->email) }}">Chọn vào đây để xác thực tài khoản</a></p>

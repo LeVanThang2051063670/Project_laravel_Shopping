@@ -1,6 +1,6 @@
 @extends('master.admin')
 
-@section('title', 'Edit product ' . $product->name)
+@section('title', 'Sửa sản phẩm ' . $product->name)
 @section('main')
 
     <div class="row">
@@ -8,7 +8,7 @@
             @csrf @method('PUT')
             <div class="col-md-9">
                 <div class="form-group">
-                    <label for="">Product name</label>
+                    <label for="">Tên sản phẩm</label>
                     <input name="name" type="text" class="form-control" value="{{ $product->name }}"
                         placeholder="Input field">
                     @error('name')
@@ -16,14 +16,14 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="">Product description</label>
+                    <label for="">Chi tiết sản phẩm</label>
                     <textarea name="description" class="form-control" placeholder="Description">{{ $product->description }}</textarea>
                     @error('description')
                         <small class="help-block text-danger">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="">Product other image</label>
+                    <label for="">Ảnh sản phẩm thêm</label>
                     <input name="other_img[]" type="file" class="form-control" multiple placeholder="Input field"
                         onchange="showOtherImage(this)">
                     <hr>
@@ -52,9 +52,9 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="">Product category</label>
+                    <label for="">Danh mục </label>
                     <select name="category_id" class="form-control" id="">
-                        <option value="">Choose one</option>
+                        <option value="">Chọn một</option>
                         @foreach ($cats as $cat)
                             <option value="{{ $cat->id }}"{{ $cat->id == $product->category_id ? 'selected' : '' }}>
                                 {{ $cat->name }}</option>
@@ -66,7 +66,7 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="">Product price</label>
+                    <label for="">Giá sản phẩm</label>
                     <input name="price" type="text" class="form-control" value="{{ $product->price }}"
                         placeholder="Input field">
                     @error('price')
@@ -74,7 +74,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="">Product Sale_price</label>
+                    <label for="">Giá sale</label>
                     <input name="sale_price" type="text" class="form-control" value="{{ $product->sale_price }}"
                         placeholder="Input field">
                     @error('sale_price')
@@ -84,7 +84,7 @@
 
 
                 <div class="form-group">
-                    <label for="">Product Status</label>
+                    <label for="">Trạng Thái</label>
 
                     <div class="radio">
                         <label>
@@ -102,7 +102,7 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <label for="">Product image</label>
+                        <label for="">Ảnh sản phẩm</label>
                         <input name="img" type="file" class="form-control" id="" placeholder="Input field"
                             onchange="showImage(this)">
                         @error('img')
@@ -112,7 +112,7 @@
 
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-save">Save</i></button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save">Lưu</i></button>
             </div>
         </form>
     </div>

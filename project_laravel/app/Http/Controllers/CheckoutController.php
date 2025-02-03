@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use App\Models\OrderDetail;
 use Mail;
 use App\Mail\OrderMail;
+use App\Models\WarehouseTransaction;
+use Illuminate\Support\Facades\DB;
+
+
 
 class CheckoutController extends Controller
 {
@@ -79,17 +83,87 @@ class CheckoutController extends Controller
     public function verify($token)
     {
         $order = Order::where('token', $token)->first();
-        if ($order) {
+        if (!$order) {
+            return abort(404);
+        }
+
+        DB::beginTransaction();
+        try {
             $order->status = 1;
             $order->token = null;
             $order->save();
-            return redirect()->route('home.index')->with('ok', 'order verify successfully');
 
+            foreach ($order->details as $detail) {
+                $product = $detail->product;
+
+                // Kiểm tra số lượng sản phẩm
+                if ($product->quantity < $detail->quantity) {
+                    throw new \Exception('Số lượng sản phẩm không đủ để thực hiện đơn hàng!');
+                }
+
+                $remainingQuantity = $detail->quantity; // Số lượng cần xử lý
+
+                // Lấy các giao dịch kho liên quan đến sản phẩm
+                $warehouseTransactions = WarehouseTransaction::where('product_id', $detail->product_id)
+                    ->orderBy('created_at', 'asc') // Ưu tiên FIFO
+                    ->get();
+
+                //dd($warehouseTransactions);
+
+                foreach ($warehouseTransactions as $transaction) {
+                    if ($remainingQuantity <= 0)
+                        break;
+                    $a = $transaction->import_code;
+                    //dd(gettype($transaction->import_code), $transaction->import_code);
+
+                    // Tách mã import_code thành mảng
+                    //$importCodes = explode(',', $transaction->import_code);
+
+                    if (is_array($transaction->import_code)) {
+                        $importCodes = $transaction->import_code;
+                    } elseif (is_string($transaction->import_code)) {
+                        // Nếu import_code là chuỗi, chuyển thành mảng bằng explode
+                        $importCodes = explode(',', $transaction->import_code);
+                    } else {
+                        dd('Dữ liệu không hợp lệ', $transaction->import_code);
+                    }
+
+                    // Chọn ngẫu nhiên các mã import_code
+                    $usedCodes = [];
+                    while ($remainingQuantity > 0 && count($importCodes) > 0) {
+                        $randomKey = array_rand($importCodes); // Chọn mã ngẫu nhiên
+                        $usedCodes[] = $importCodes[$randomKey];
+                        unset($importCodes[$randomKey]); // Xóa mã đã sử dụng
+                        $remainingQuantity--;
+                    }
+
+                    // Cập nhật lại import_code và quantity trong warehouse_transactions
+                    $transaction->import_code = implode(',', $importCodes);
+                    $transaction->quantity -= count($usedCodes);
+
+                    if ($transaction->quantity < 0) {
+                        throw new \Exception('Không đủ hàng trong kho để thực hiện đơn hàng!');
+                    }
+
+                    $transaction->save();
+                }
+
+                // Kiểm tra nếu vẫn còn số lượng cần xử lý mà không đủ giao dịch kho
+                if ($remainingQuantity > 0) {
+                    throw new \Exception('Không đủ hàng trong kho để thực hiện đơn hàng!');
+                }
+
+                // Cập nhật lại số lượng sản phẩm trong bảng products
+                $product->quantity -= $detail->quantity;
+                $product->save();
+            }
+
+            DB::commit();
+            return redirect()->route('home.index')->with('ok', 'Đơn hàng đã được xác nhận thành công.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->route('home.index')->with('no', 'Đã có lỗi xảy ra: ' . $e->getMessage());
         }
-        return abort(404);
-
-
-
-
     }
+
 }

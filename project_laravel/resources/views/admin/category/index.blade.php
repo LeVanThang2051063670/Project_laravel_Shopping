@@ -1,18 +1,18 @@
 @extends('master.admin')
 
-@section('title', 'Category Manager')
+@section('title', 'Quản lý danh mục')
 @section('main')
     <form action="" method="POST" class="form-inline" role="form">
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label class="sr-only" for="">label</label>
             <input type="email" class="form-control" id="" placeholder="Input field">
-        </div>
+        </div> --}}
 
-
-
-        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-        <a href="{{ route('category.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus ">Add new</i></a>
+        {{-- 
+        tìm kiếm --}}
+        {{-- <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button> --}}
+        <a href="{{ route('category.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus ">Thêm mới</i></a>
     </form>
 
     <br>
@@ -21,8 +21,8 @@
         <thead>
             <tr>
                 <th>STT</th>
-                <th>Category Name</th>
-                <th>Category Status</th>
+                <th>Tên danh mục</th>
+                <th>Trạng thái</th>
             </tr>
         </thead>
         <tbody>
@@ -36,9 +36,9 @@
                             @csrf
                             @method('DELETE')
                             <a href="{{ route('category.edit', $item->id) }}" class="btn btn-sm btn-primary"><i
-                                    class="fa fa-edit"></i>Edit</a>
+                                    class="fa fa-edit"></i>Sửa</a>
                             <button href="" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Are you sure delete ?')"><i class="fa fa-trash"></i>Delete</button>
+                                onclick="return confirm('Are you sure delete ?')"><i class="fa fa-trash"></i>Xóa</button>
                         </form>
 
                     </td>

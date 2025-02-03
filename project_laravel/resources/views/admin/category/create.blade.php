@@ -1,6 +1,6 @@
 @extends('master.admin')
 
-@section('title', 'Create new category')
+@section('title', 'Thêm danh mục mới')
 @section('main')
 
     <div class="row">
@@ -10,12 +10,12 @@
 
 
                 <div class="form-group">
-                    <label for="name">Category name</label>
+                    <label for="name">Tên danh mục</label>
                     <input type="text" class="form-control" name="name" id="" placeholder="Input field">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Category Status</label>
+                    <label for="">Trạng thái</label>
 
                     <div class="radio">
                         <label>
@@ -33,7 +33,7 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-primary"><i class="fa fa-save">Save</i></button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save">Lưu</i></button>
             </form>
         </div>
     </div>

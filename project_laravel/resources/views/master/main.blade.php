@@ -59,11 +59,11 @@
                             <ul class="list-wrap">
                                 <li class="header-location">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    33M Sun Central. New York
+                                    Ha Noi
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope"></i>
-                                    <a href="mailto:info@example.com">info@example.com</a>
+                                    <a href="mailto:thanglevan2k2@gmail.com">thanglevan2k2@gmail.com</a>
                                 </li>
                             </ul>
                         </div>
@@ -76,14 +76,14 @@
                                     @if (auth('cus')->check())
                                         <li><a href="{{ route('account.profile') }}">Hi
                                                 {{ auth('cus')->user()->name }}</a></a></li>
-                                        <li><a href="{{ route('account.change_password') }}">Change password</a></a>
+                                        <li><a href="{{ route('account.change_password') }}">Đổi mật khẩu</a></a>
                                         </li>
-                                        <li><a href="{{ route('account.favorite') }}">Favorired</a></a></li>
-                                        <li><a href="{{ route('order.history') }}">History</a></a></li>
-                                        <li><a href="{{ route('account.logout') }}">Logout</a></a></li>
+                                        <li><a href="{{ route('account.favorite') }}">Yêu Thích</a></a></li>
+                                        <li><a href="{{ route('order.history') }}">Lịch sử</a></a></li>
+                                        <li><a href="{{ route('account.logout') }}">Đăng xuất</a></a></li>
                                     @else
-                                        <li><a href="{{ route('account.login') }}">Login</a></li>
-                                        <li><a href="{{ route('account.register') }}">Register</a></li>
+                                        <li><a href="{{ route('account.login') }}">Đăng nhập</a></li>
+                                        <li><a href="{{ route('account.register') }}">Đăng ký</a></li>
                                     @endif
 
 
@@ -110,14 +110,15 @@
                             <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
                             <nav class="menu-nav">
                                 <div class="logo">
-                                    <a href="index-2.html"><img src="uploads/logo/logo.png" alt="Logo"></a>
+                                    <a href="{{ route('home.index') }}"><img src="uploads/logo/logo.png"
+                                            alt="Logo"></a>
                                 </div>
                                 <div class="navbar-wrap main-menu d-none d-lg-flex">
                                     <ul class="navigation">
 
-                                        <li class="active"><a href="{{ route('home.index') }}">Home</a></li>
-                                        <li class=""><a href="about.html">ABOUT US</a></li>
-                                        <li class="menu-item-has-children"><a href="#">PRODUCTS</a>
+                                        <li class="active"><a href="{{ route('home.index') }}">Trang chủ</a></li>
+                                        <li class=""><a href="{{ route('home.about') }}">Khác</a></li>
+                                        <li class="menu-item-has-children"><a href="#">Sản Phẩm</a>
                                             <ul class="sub-menu">
                                                 @foreach ($cats_home as $cath)
                                                     <li><a
@@ -126,20 +127,20 @@
                                                 @endforeach
                                             </ul>
                                         </li>
-                                        <li class="menu-item-has-children"><a href="#">BLOG</a>
+                                        <li class="menu-item-has-children"><a href="#">Tin Tức</a>
                                             <ul class="sub-menu">
-                                                <li><a href="blog.html">Our Blog</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="blog.html">Tin tức 1</a></li>
+                                                <li><a href="blog-details.html">Tin tức 2</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item-has-children"><a href="#">PAGES</a>
+                                        <li class="menu-item-has-children"><a href="#">Dịch vụ</a>
                                             <ul class="sub-menu">
-                                                <li><a href="services.html">Services Page</a></li>
-                                                <li><a href="services-details.html">Services Details</a></li>
-                                                <li><a href="team-details.html">Team Details</a></li>
+                                                <li><a href="services.html">Trang dịch vụ</a></li>
+                                                <li><a href="services-details.html">Chi tiết</a></li>
+
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="#">Liên hệ</a></li>
                                     </ul>
                                 </div>
                                 <div class="header-action d-none d-md-block">
@@ -153,7 +154,7 @@
                                                 <span>{{ $carts->sum('quantity') }}</span>
                                             </a>
                                         </li>
-                                        <li class="header-btn"><a href="tel:0123456789" class="btn">+1 333 555
+                                        <li class="header-btn"><a href="tel:0123456789" class="btn">0 333 555
                                                 999</a></li>
                                     </ul>
                                 </div>
@@ -220,7 +221,7 @@
         <div class="footer-area">
             <div class="footer-logo-area">
                 <div class="container">
-                    <div class="footer-logo-wrap">
+                    {{-- <div class="footer-logo-wrap">
                         <ul class="list-wrap">
                             <li class="order-0 order-lg-2">
                                 <div class="footer-logo">
@@ -247,7 +248,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="footer-top">
@@ -255,44 +256,44 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="footer-widget">
-                                <h4 class="fw-title">about andspa</h4>
+                                <h4 class="fw-title">Thông tin liên hệ</h4>
                                 <div class="footer-contact">
                                     <ul class="list-wrap">
-                                        <li>Centerl Park West La, New York</li>
-                                        <li><a href="tel:0123456789">+0 333 999 8899</a></li>
-                                        <li><a href="mailto:info@bemet.com">info@bemet.com</a></li>
+                                        <li>Dong Da, Ha Noi</li>
+                                        <li><a href="tel:0345638915">+0345 638 915</a></li>
+                                        <li><a href="mailto:thanglevan2k2@gmail.com">thanglevan2k2@gmail.com</a></li>
                                     </ul>
                                 </div>
                                 <div class="footer-content">
-                                    <h4 class="title">Open Hours</h4>
-                                    <p>Sunday to Friday <span>06:00-18:00</span></p>
+                                    <h4 class="title">Giờ mở cửa</h4>
+                                    <p>Thứ 2 - Thư 7 <span>06:00-18:00</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="footer-widget">
-                                <h4 class="fw-title">Important Links</h4>
+                                <h4 class="fw-title">Các thông tin liện hệ khác</h4>
                                 <div class="footer-link">
                                     <ul class="list-wrap">
-                                        <li><a href="contact.html">CURATION</a></li>
-                                        <li><a href="about.html">ABOUT US</a></li>
-                                        <li><a href="contact.html">MY ACCOUNT</a></li>
-                                        <li><a href="contact.html">CONTACT</a></li>
-                                        <li><a href="contact.html">SHIPPING & RETURNS</a></li>
+                                        <li><a href="contact.html">Zalo</a></li>
+                                        <li><a href="about.html">Facebook</a></li>
+                                        <li><a href="contact.html">Instagram</a></li>
+                                        <li><a href="contact.html">X</a></li>
+                                        <li><a href="contact.html">Sms</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-6 col-sm-4">
                             <div class="footer-widget">
-                                <h4 class="fw-title">CATEGORIES</h4>
+                                <h4 class="fw-title">DANH MỤC</h4>
                                 <div class="footer-link">
                                     <ul class="list-wrap">
-                                        <li><a href="contact.html">How to Order</a></li>
-                                        <li><a href="contact.html">Delivery Info</a></li>
-                                        <li><a href="contact.html">FAQs</a></li>
-                                        <li><a href="contact.html">Terms</a></li>
-                                        <li><a href="contact.html">Privacy Policy</a></li>
+                                        <li><a href="contact.html">Đặt hàng</a></li>
+                                        <li><a href="contact.html">Thông tin</a></li>
+                                        <li><a href="contact.html">Liên hệ</a></li>
+                                        <li><a href="contact.html">Sản phẩm</a></li>
+                                        <li><a href="contact.html">Hỏi đáp</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -330,7 +331,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-7">
                             <div class="copyright-text">
-                                <p>© 2023 By <a href="index-2.html">Bemet</a>, All Rights Reserved</p>
+                                <p>© 2024 Thang <a href="index-2.html">ThangFood</a>, All Rights Reserved</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-5">

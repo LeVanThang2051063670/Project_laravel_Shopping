@@ -12,10 +12,10 @@
     <table border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>STT</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Sub Total</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Tổng</th>
         </tr>
         <?php
         $total = 0;
@@ -34,10 +34,10 @@
             ?>
         @endforeach
         <tr>
-            <th colspan="4">Total price</th>
+            <th colspan="4">Tổng giá</th>
             <th>{{ number_format($total) }}</th>
         </tr>
 
     </table>
-    <p><a href="{{ route('order.verify', ['token' => $token]) }}">Click here to verify order</a></p>
+    <p><a href="{{ route('order.verify', ['token' => $token]) }}">Click vào đây để xác nhận đơn hàng</a></p>
 </div>

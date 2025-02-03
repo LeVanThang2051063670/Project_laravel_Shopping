@@ -12,7 +12,7 @@
                             <h2 class="title">{{ $product->name }}</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Trang chu</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
                                 </ol>
                             </nav>
@@ -60,8 +60,8 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="shop-details-content">
-                            <h2 class="title">Necessary Human Body</h2>
-                            <div class="review-wrap">
+                            <h2 class="title">{{ $product->name }}</h2>
+                            <div class="review-wrap" style="visibility: hidden;">
                                 <div class="rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -71,40 +71,47 @@
                                 </div>
                                 <span>(4 customer reviews)</span>
                             </div>
-                            <h3 class="price">$8.50 <span>- In stock</span></h3>
+                            <h3 class="price">{{ $product->sale_price }} Đ<span>Còn hàng</span></h3>
                             <div class="product-count-wrap">
-                                <span class="title">Hurry Up! Sale ends in:</span>
-                                <div class="coming-time" data-countdown="2024/7/6"></div>
+                                <span class="title">Nhanh lên nào !khuyến mãi kết thúc sau</span>
+                                <div class="coming-time" data-countdown="2024/12/12"></div>
                             </div>
-                            <p>Meat provide well shaped fresh and the organic meat well animals is Humans have hunted
-                                schistoric times meat, the flesh</p>
+                            <p>Thịt là một loại thức ăn vô cùng quan trong đối với con người !</p>
                             <div class="shop-details-qty">
-                                <span class="title">Quantity :</span>
+                                <span class="title">Số lượng :</span>
                                 <div class="shop-details-qty-inner">
-                                    <form action="#">
+                                    <form action="#" style="display: none">
                                         <div class="cart-plus-minus">
                                             <input type="text" value="1">
                                         </div>
                                     </form>
-                                    <button class="purchase-btn">PURCHASE</button>
+                                    @if (auth('cus')->check())
+                                        <a title="thêm giỏ hàng" href="{{ route('cart.add', $product->id) }}"><button
+                                                class="purchase-btn" style="width:100%">
+                                                Thêm giỏ hàng</button></a>
+                                    @else
+                                        <a title="thêm giỏ hàng" href="{{ route('account.login', $product->id) }} "><button
+                                                class="purchase-btn" style="width:100%">
+                                                Thêm giỏ hàng</button></a>
+                                    @endif
                                 </div>
                             </div>
-                            <a href="#" class="buy-btn">Buy it now</a>
+                            <a href="{{ route('order.checkout') }}" class="buy-btn">Mua ngay</a>
                             <div class="payment-method-wrap">
-                                <span class="title">GUARANTEED SAFE CHECKOUT:</span>
+                                <span class="title">Đảm bảo thanh toán khi nhận hàng</span>
                                 <img src="assets/img/product/payment_method.png" alt="">
                             </div>
                             <div class="shop-add-Wishlist">
-                                <a href="#"><i class="far fa-heart"></i>Add to Wishlist</a>
+                                <a href="#"><i class="far fa-heart"></i>Yêu thích sản phẩm</a>
                             </div>
                             <div class="sd-sku">
-                                <span class="title">SKU:</span>
-                                <a href="#">002</a>
+                                <span class="title">Mã sản phẩm</span>
+                                <a href="#">{{ $product->id }}</a>
                             </div>
                             <div class="sd-category">
-                                <span class="title">CATEGORY:</span>
+                                <span class="title">Danh mục:</span>
                                 <ul class="list-wrap">
-                                    <li><a href="#">lipstick</a></li>
+                                    <li><a href="#">{{ $product->cat->name }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -117,12 +124,13 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
                                         data-bs-target="#description-tab-pane" type="button" role="tab"
-                                        aria-controls="description-tab-pane" aria-selected="true">Description</button>
+                                        aria-controls="description-tab-pane" aria-selected="true">Thông tin chi
+                                        tiết</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
                                         data-bs-target="#reviews-tab-pane" type="button" role="tab"
-                                        aria-controls="reviews-tab-pane" aria-selected="false">Reviews (0)</button>
+                                        aria-controls="reviews-tab-pane" aria-selected="false">Đánh giá(0)</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="descriptionTabContent">
@@ -137,13 +145,13 @@
                                     aria-labelledby="reviews-tab" tabindex="0">
                                     <div class="product-desc-review">
                                         <div class="product-desc-review-title mb-15">
-                                            <h5 class="title">Customer Reviews (0)</h5>
+                                            <h5 class="title">Khách hàng đánh giá (0)</h5>
                                         </div>
                                         <div class="left-rc">
-                                            <p>No reviews yet</p>
+                                            <p>Không có đánh giá</p>
                                         </div>
                                         <div class="right-rc">
-                                            <a href="#">Write a review</a>
+                                            <a href="#">Viết đánh giá</a>
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +164,7 @@
         <!-- shop-details-area-end -->
 
         <!-- product-area -->
-        <section class="related-product-area pb-70">
+        {{-- <section class="related-product-area pb-70">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -317,7 +325,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- product-area-end -->
 
     </main>

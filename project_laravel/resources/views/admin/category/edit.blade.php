@@ -13,13 +13,13 @@
 
 
                 <div class="form-group">
-                    <label for="">Category name</label>
+                    <label for="">Tên danh mục</label>
                     <input name="name" value="{{ $category->name }}" type="text" class="form-control" id=""
                         placeholder="Input field">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Category Status</label>
+                    <label for="">Trạng thái</label>
 
                     <div class="radio">
                         <label>
@@ -39,7 +39,7 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-primary"><i class="fa fa-edit">Update</i></button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-edit">Cập nhật</i></button>
             </form>
         </div>
     </div>

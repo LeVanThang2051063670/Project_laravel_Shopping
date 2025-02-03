@@ -5,5 +5,5 @@
         tempora accusamus maxime laudantium! Maiores sapiente debitis numquam possimus rem officia dicta non.
 
     </p>
-    <p><a href="{{ route('account.reset_password', ['token' => $token]) }}">Click here to get new password</a></p>
+    <p><a href="{{ route('account.reset_password', ['token' => $token]) }}">Bấm vào link này để tạo mật khẩu mới</a></p>
 </div>

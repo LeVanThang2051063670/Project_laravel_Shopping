@@ -47,7 +47,7 @@ class HomeController extends Controller
     }
     public function product(Product $product)
     {
-        //truy van san pham lien quan
+
         $products = Product::where('category_id', $product->category_id)->limit(12)->get();
         return view('home.product', compact('product', 'products'));
     }

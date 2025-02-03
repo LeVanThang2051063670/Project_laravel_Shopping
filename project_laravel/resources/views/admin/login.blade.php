@@ -31,7 +31,7 @@
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Đăng nhập</p>
 
             <form action="" method="post">
                 @csrf
@@ -59,13 +59,13 @@
                     <div class="col-xs-8">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox"> Remember Me
+                                <input type="checkbox"> Ghi nhớ
                             </label>
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -74,7 +74,7 @@
 
             <!-- /.social-auth-links -->
 
-            <a href="#">I forgot my password</a><br>
+            <a href="#">Tôi đã quên mật khẩu</a><br>
 
 
         </div>

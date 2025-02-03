@@ -11,12 +11,14 @@
             <div class="contact-wrap">
                 <div class="container">
                     <table class="table table-hover">
+                        <a href="{{ route('order.create') }}" class="btn btn-success pull-right" style="margin-right: 2px"><i
+                                class="fa fa-plus ">Tạo đơn hàng</i></a>
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Order date</th>
-                                <th>Status</th>
-                                <th>Total Price</th>
+                                <th>Ngày đặt</th>
+                                <th>Trạng thái</th>
+                                <th>Tổng tiền</th>
 
                                 <th></th>
                             </tr>
@@ -33,7 +35,7 @@
                                         @elseif($item->status == 1)
                                             <span>Đã xác nhận đơn hàng</span>
                                         @elseif($item->status == 2)
-                                            <span>Đã thanh toán</span>
+                                            <span>Đã hoàn thành</span>
                                         @else
                                             <span>Đã Hủy</span>
                                         @endif
@@ -43,8 +45,8 @@
 
                                     <td>
 
-                                        <a href="{{ route('order.show', $item->id) }}"
-                                            class="btn btn-sm btn-primary">Detail</a>
+                                        <a href="{{ route('order.show', $item->id) }}" class="btn btn-sm btn-primary">Chi
+                                            tiết</a>
                                     </td>
 
                                 </tr>

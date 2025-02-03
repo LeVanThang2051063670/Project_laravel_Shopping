@@ -1,6 +1,6 @@
 @extends('master.admin')
 
-@section('title', 'Create new product')
+@section('title', 'Thêm sản phẩm mới')
 @section('main')
 
     <div class="row">
@@ -8,15 +8,15 @@
             @csrf
             <div class="col-md-9">
                 <div class="form-group">
-                    <label for="">Product name</label>
+                    <label for="">Tên sản phẩm</label>
                     <input name="name" type="text" class="form-control" id="" placeholder="Input field">
                 </div>
                 <div class="form-group">
-                    <label for="">Product description</label>
+                    <label for="">Chi tiết</label>
                     <textarea name="description" class="form-control description " placeholder="Description"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="">Product other image</label>
+                    <label for="">Ảnh khác</label>
                     <input name="other_img[]" type="file" class="form-control" multiple onchange="showOtherImage(this)">
                     <hr>
                     <div class="row" id="show_other_img">
@@ -28,9 +28,9 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="">Product category</label>
+                    <label for="">Danh mục</label>
                     <select name="category_id" class="form-control" id="">
-                        <option value="">Choose one</option>
+                        <option value="">Chọn</option>
                         @foreach ($cats as $cat)
                             <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                         @endforeach
@@ -38,17 +38,17 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="">Product price</label>
+                    <label for="">Giá</label>
                     <input name="price" type="text" class="form-control" id="" placeholder="Input field">
                 </div>
                 <div class="form-group">
-                    <label for="">Product Sale_price</label>
+                    <label for="">Giá sale</label>
                     <input name="sale_price" type="text" class="form-control" id="" placeholder="Input field">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="">Product Status</label>
+                    <label for="">Trạng thái </label>
 
                     <div class="radio">
                         <label>
@@ -64,12 +64,12 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <label for="">Product image</label>
+                        <label for="">Ảnh sản phẩm</label>
                         <input name="img" type="file" class="form-control" onchange="showImage(this)">
                         <img id="show_img" src="" alt="" width="100%">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-save">Save</i></button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save">Lưu</i></button>
             </div>
         </form>
     </div>

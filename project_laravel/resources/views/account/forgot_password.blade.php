@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Forgot Password</h2>
+                            <h2 class="title">Quên mật khẩu</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Forgot Password</li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Trang chủ</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Quên mật khẩu</li>
                                 </ol>
                             </nav>
                         </div>
@@ -33,11 +33,10 @@
                         <div class="col-lg-6">
                             <div class="contact-content">
                                 <div class="section-title mb-15">
-                                    <span class="sub-title">Get New your password</span>
+                                    <span class="sub-title">Tạo mật khẩu mới</span>
 
                                 </div>
-                                <p>Meat provide well shaped fresh and the organic meat well <br> animals is Humans have
-                                    hunted schistoric</p>
+                                <p></p>
                                 <form action="" method="POST">
                                     @csrf
                                     <div class="contact-form-wrap">
@@ -50,7 +49,7 @@
                                         </div>
 
 
-                                        <button type="submit">Send Email</button>
+                                        <button type="submit">Gửi mail</button>
                                     </div>
                                 </form>
                                 <p class="ajax-response mb-0"></p>

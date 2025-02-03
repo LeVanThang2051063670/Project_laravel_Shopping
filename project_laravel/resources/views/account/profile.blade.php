@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Profile</h2>
+                            <h2 class="title">Thông tin </h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Trang chủ</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Thông tin cá nhân</li>
                                 </ol>
                             </nav>
                         </div>
@@ -33,11 +33,10 @@
                         <div class="col-lg-6">
                             <div class="contact-content">
                                 <div class="section-title mb-15">
-                                    <span class="sub-title">Profile</span>
-                                    <h2 class="title">Get in <span>Touch</span></h2>
+                                    <span class="sub-title">Trang cá nhân</span>
+                                    <h2 class="title">Xin chào <span>bạn</span></h2>
                                 </div>
-                                <p>Meat provide well shaped fresh and the organic meat well <br> animals is Humans have
-                                    hunted schistoric</p>
+                                <p></p>
                                 <form action="" method="POST">
                                     @csrf
                                     <div class="contact-form-wrap">
@@ -66,10 +65,10 @@
                                         </div>
                                         <div class="form-grp">
                                             <select name="gender" class="form-control">
-                                                <option value="">Select one</option>
-                                                <option value="1" {{ $auth->gender == 1 ? 'selected' : '' }}>Male
+                                                <option value="">Chọn</option>
+                                                <option value="1" {{ $auth->gender == 1 ? 'selected' : '' }}>Nam
                                                 </option>
-                                                <option value="0" {{ $auth->gender == 0 ? 'selected' : '' }}>FeMale
+                                                <option value="0" {{ $auth->gender == 0 ? 'selected' : '' }}>Nữ
                                                 </option>
                                             </select>
                                         </div>
@@ -81,7 +80,7 @@
                                         </div>
 
 
-                                        <button type="submit">Update profile</button>
+                                        <button type="submit">Cập nhật thông tin</button>
                                     </div>
                                 </form>
                                 <p class="ajax-response mb-0"></p>

@@ -15,27 +15,31 @@
     <div class="row">
         <div class="col-md-6">
             <h3>Thông tin khách hàng</h3>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Họ tên</th>
-                        <td>{{ $auth->name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Phone</th>
-                        <td>{{ $auth->phone }}</td>
-                    </tr>
-                    <tr>
-                        <th>Địa chỉ</th>
-                        <td>{{ $auth->address }}</td>
-                    </tr>
+            @if (isset($auth))
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Họ tên</th>
+                            <td>{{ $auth->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td>{{ $auth->phone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Địa chỉ</th>
+                            <td>{{ $auth->address }}</td>
+                        </tr>
 
-                </thead>
+                    </thead>
 
-            </table>
+                </table>
+            @else
+                <p>Khách ngoài.</p>
+            @endif
         </div>
         <div class="col-md-6">
-            <h3>Thông tin giao hàng</h3>
+            <h3>Thông tin </h3>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -67,11 +71,11 @@
         <thead>
             <tr>
                 <th>STT</th>
-                <th>Image</th>
-                <th>Product Name</th>
-                <th>Product quantity</th>
-                <th>Product Price</th>
-                <th>Sub Total</th>
+                <th>Ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Tổng</th>
 
                 <th></th>
             </tr>
